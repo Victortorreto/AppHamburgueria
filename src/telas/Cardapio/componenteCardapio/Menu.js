@@ -1,21 +1,27 @@
 import React from "react";
-import {View, Image} from "react-native";
-import{Avatar, Button, Card} from "react-native-paper";
+import { View, Image, StyleSheet } from "react-native";
+import { Avatar, Button, Card } from "react-native-paper";
 
 import Texto from '../../../componentes/Texto';
-import styles from '../estilosCardapio';
 
 
-const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
 
-export default function Menu({ti}) {
-    return <>
-    <View style={styles.container}>
-      {/* <Image style={styles.logo}source ={logo} resizeMode="contain"/>  */}
-      <Texto style={styles.titulo}>{ti}</Texto>
-      {/* <Image style={styles.im}source ={fome} resizeMode="contain"/>  */}
-      
-      <Card>
+// const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
+
+export default function Menu({ item: { nome, preco, ingredientes, imagem } }) {
+  return  <View style={styles.container}>
+    
+      <Card mode='elevated' style={styles.card}>
+        <Card.Content >
+          <Texto style={styles.name}>{nome}</Texto>
+          <Texto style={styles.pre}>{preco}</Texto>
+          <Texto style={styles.ingre}>{ingredientes}</Texto>
+          {/* <Image source={imagem} style={styles.imagem}/> */}
+        </Card.Content>
+        <Card.Cover style={styles.im} source={imagem} />
+        {/* <Texto style={styles.titulo}>{ti}</Texto> */}
+
+        {/* <Card>
       <Card.Title title="Card Title" subtitle="Card Subtitle" left={LeftContent} />
       <Card.Content>
         <Texto variant="titleLarge">Card title</Texto>
@@ -26,14 +32,33 @@ export default function Menu({ti}) {
         <Button>Cancel</Button>
         <Button>Ok</Button>
       </Card.Actions>
-    </Card>
-    </View> 
+    </Card>*/}
+      </Card>
+    </View>
+}
 
-    </>
-
+const styles = StyleSheet.create({
+  container: {
+    width: "100%",
+    height:"100%",
+    backgroundColor: "orange",
+    flex:1,
+  },
+  titulo: {
+    fontSize: 20,
+  },
+    im: {
+       widthfull: 100,
+       justifyContent: 'center',
+   },
+  card: {
+    width: "100%",
+    flexDirection: 'row',
+    paddingTop: 10,
+    margin: 5,
   }
+});
 
-  
-   
-  
-  
+
+
+
