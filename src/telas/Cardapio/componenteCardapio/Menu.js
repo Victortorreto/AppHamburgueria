@@ -56,7 +56,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingTop: 10,
     margin: 5,
-  }
+  },
+  name:{
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  pre:{
+    fontSize: 15,
+  },
+  ingre:{
+    fontSize: 15,
+  },
 });
 
 
