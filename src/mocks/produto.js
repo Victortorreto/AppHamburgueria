@@ -1,6 +1,6 @@
-import fita_cetim from "../../assets/hamburgue.jpg";
-import batata_frita from "../../assets/batata.jpg";
-
+import Bacon from "../../assets/bacon.jpg";
+import porcao from "../../assets/porcaobatata.jpg";
+import Rodizio from "../../assets/rodizio.jpg";
 
 const produto = {
     topo: {
@@ -16,16 +16,16 @@ const produto = {
         titulo: "Item do Kit",
         lista: [
             {
-                nome: "X-Bacon",
-                imagem: fita_cetim,
+                nome: "Rodízio Mini-Burguer R$ 79,99" ,
+                imagem: Rodizio,
             },
             {
-                nome: "Batata Frita",
-                imagem: batata_frita,
+                nome: "Combo Bacon R$23,90",
+                imagem: Bacon,
             },
             {
-                nome: "X-Picanha",
-                imagem: fita_cetim,
+                nome: "Porção Batata Frita R$ 25,99",
+                imagem: porcao,
             },
         ]
     }

@@ -1,12 +1,15 @@
 import React from "react";
-import {FlatList, StyleSheet, View, StatusBar} from 'react-native';
+import {FlatList, StyleSheet, View, StatusBar, Image} from 'react-native';
 
 import Menu from './componenteCardapio/Menu';
+import bk from '../../../assets/bk.png';
+
 
 export default function Index({titulo, lanches}) {
     
     return <View style={styles.container}>
               <StatusBar/>
+              <Image style={styles.logo}source ={bk} resizeMode="contain"/>
               
                   <FlatList   
                 data={lanches.lista}
@@ -24,5 +27,9 @@ const styles = StyleSheet.create({
     height:"100%",
     backgroundColor: "orange",
     flex:1,
+  },
+  logo: {
+    width: "100%",
+    height: "20%",
   },
 })

@@ -4,8 +4,6 @@ import { Avatar, Button, Card } from "react-native-paper";
 
 import Texto from '../../../componentes/Texto';
 
-
-
 // const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
 
 export default function Menu({ item: { nome, preco, ingredientes, imagem } }) {
@@ -50,6 +48,8 @@ const styles = StyleSheet.create({
     im: {
        widthfull: 100,
        justifyContent: 'center',
+       width: "100%",
+      
    },
   card: {
     width: "100%",
