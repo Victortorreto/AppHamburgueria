@@ -54,8 +54,11 @@ const styles = StyleSheet.create({
   card: {
     width: "100%",
     flexDirection: 'row',
-    paddingTop: 10,
+    paddingTop: 15,
     margin: 5,
+    height: 400,
+    borderRadius: 10,
+    elevation: 3,
   },
   name:{
     fontSize: 20,

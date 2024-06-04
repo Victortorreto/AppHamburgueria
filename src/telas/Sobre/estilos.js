@@ -11,7 +11,6 @@ const styles = StyleSheet.create({
     },
     trajetoria: {
         fontSize: 20,
-        paddingLeft: 20,
         paddingHorizontal: 20,
         textAlign: "justify"    
     },
