@@ -13,7 +13,7 @@ const produto = {
         botao: "Adicionar na Lista de Pedidos "
     },
     itens: {
-        titulo: "Item do Kit",
+        titulo: "Promoções do dia!!",
         lista: [
             {
                 nome: "Rodízio Mini-Burguer R$ 79,99" ,

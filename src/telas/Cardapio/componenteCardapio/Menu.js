@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Image, StyleSheet } from "react-native";
+import { View, Image, StyleSheet, Alert } from "react-native";
 import { Avatar, Button, Card } from "react-native-paper";
 
 import Texto from '../../../componentes/Texto';
@@ -10,13 +10,16 @@ export default function Menu({ item: { nome, preco, ingredientes, imagem } }) {
   return  <View style={styles.container}>
     
       <Card mode='elevated' style={styles.card}>
+      <Card.Cover style={styles.im} source={imagem} />
         <Card.Content >
           <Texto style={styles.name}>{nome}</Texto>
           <Texto style={styles.pre}>{preco}</Texto>
           <Texto style={styles.ingre}>{ingredientes}</Texto>
           {/* <Image source={imagem} style={styles.imagem}/> */}
         </Card.Content>
-        <Card.Cover style={styles.im} source={imagem} />
+        <Card.Actions>
+        <Button style={styles.botao} onPress={() => { Alert.alert("Adicionado na Lista de Desejos"); }}>Ok</Button>
+      </Card.Actions>
         {/* <Texto style={styles.titulo}>{ti}</Texto> */}
 
         {/* <Card>
@@ -56,7 +59,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingTop: 15,
     margin: 5,
-    height: 400,
+    height: 460,
     borderRadius: 10,
     elevation: 3,
   },
@@ -70,6 +73,9 @@ const styles = StyleSheet.create({
   ingre:{
     fontSize: 15,
   },
+  botao:{
+    
+  }
 });
 
 

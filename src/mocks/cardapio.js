@@ -1,4 +1,3 @@
-import batata_frita from "../../assets/batata.jpg";
 import Bacon from "../../assets/bacon.jpg";
 import Picanha from "../../assets/picanha.jpg";
 import Salmao from "../../assets/salmao.jpg";
@@ -34,6 +33,7 @@ const cardapio = {
                 ingredientes: "Pão da casa, Maionese de Ervas Finas, Hambúrguer de 170g de Salmão, Molho Tarê, Cream Cheese e Cebolinha",
                 imagem: Salmao,
             },
+           
         ]
     },
 } 
