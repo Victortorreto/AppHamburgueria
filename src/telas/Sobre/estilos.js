@@ -16,6 +16,10 @@ const styles = StyleSheet.create({
     },
     im: {
         width: "100%", 
+    },
+    video: {
+        width: '100%', // ou um valor fixo
+        height: 300, // ajuste conforme necessário
     }
 });
 
