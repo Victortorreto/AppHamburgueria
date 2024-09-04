@@ -7,17 +7,18 @@ export default function Avatar() {
   const [type, setType] = useState(CameraType.back);
   const [permission, requestPermission] = Camera.useCameraPermissions();
 
+
   if (!permission) {
     // Camera permissions are still loading
-    return <View />;
+    return <View style={styles.container}><Text>Loading...</Text></View>;
   }
 
   if (!permission.granted) {
     // Camera permissions are not granted yet
     return (
       <View style={styles.container}>
-        <Text style={{ textAlign: 'center' }}>We need your permission to show the camera</Text>
-        <Button onPress={requestPermission} title="grant permission" />
+        <Text style={{ textAlign: 'center' }}> Precisamos da sua permissão para acessar a câmera.</Text>
+        <Button onPress={requestPermission} title="Conceder permissão" />
       </View>
     );
   }
@@ -30,37 +31,36 @@ export default function Avatar() {
     {/* <TextInput value='0'/> */}
     <View style={styles.fundouser}></View>
 
-    
     <View style={styles.input}>
       <Text >Nome:</Text>
-      <TextInput placeholder="Digite seu nome" />
+      <TextInput style={styles.textInput} placeholder="Digite seu nome" />
     </View>
 
     <View style={styles.input}>
       <Text >Sobrenome:</Text>
-      <TextInput placeholder="Digite seu sobrenome" />
+      <TextInput style={styles.textInput} placeholder="Digite seu sobrenome" />
     </View>
 
     <View style={styles.input}>
       <Text >Endereço:</Text>
-      <TextInput placeholder="Digite seu endereço" />
+      <TextInput style={styles.textInput} placeholder="Digite seu endereço" />
     </View>
 
     <View style={styles.input}>
       <Text >E-mail:</Text>
-      <TextInput placeholder="Digite seu email" />
+      <TextInput style={styles.textInput} placeholder="Digite seu email" />
     </View>
 
     <View style={styles.input}>
       <Text >Telefone:</Text>
-      <TextInput placeholder="Digite seu número" />
+      <TextInput style={styles.textInput} placeholder="Digite seu número" />
     </View>
 
     <Button class='botao'
       title='Salvar'
       color='black'
-      onPress={() => Alert.alert('Seus dados foram salvos')} />
-
+      onPress={() => Alert.alert('Seus dados foram salvos')} 
+      />
 
     <Camera style={styles.camera} type={type}>
       <View style={styles.buttonContainer}>
@@ -69,9 +69,8 @@ export default function Avatar() {
         </TouchableOpacity>
       </View>
     </Camera> 
-
   </View>
-
+ 
 }
 
 const styles = StyleSheet.create({
@@ -79,13 +78,22 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f5f5f5',
     alignItems: 'center',
+    padding: 20,
   },
   input: {
     flexDirection: "row",
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    gap: 20,
-    marginBottom: 15,
+    marginVertical: 10,
+    width: '100%',
+  },
+  textInput: {
+    flex: 1,
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 5,
+    padding: 10,
+    marginLeft: 10,
   },
   fundouser: {
     marginBottom: 70,
@@ -94,11 +102,32 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
     borderRadius: 80,
     marginTop: 60,
-},
-  botao: {
-
+  },
+  permissionText: {
+    textAlign: 'center',
+    marginBottom: 16,
+    color: 'black',
+  },
+  camera: {
+    flex: 1,
+    width: '100%',
+    borderRadius: 10,
+    overflow: 'hidden',
+  },
+  buttonContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    backgroundColor: 'transparent',
+    margin: 64,
+  },
+  button: {
+    flex: 1,
+    alignSelf: 'flex-end',
+    alignItems: 'center',
+  },
+  text: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: 'black',
   }
-
 });
-
-
