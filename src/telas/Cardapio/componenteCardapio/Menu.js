@@ -1,12 +1,51 @@
 import React from "react";
-import { View, Image, StyleSheet, Alert } from "react-native";
+import { View, Image, StyleSheet, Alert, Touchable } from "react-native";
 import { Avatar, Button, Card } from "react-native-paper";
 
 import Texto from '../../../componentes/Texto';
+import { TouchableOpacity } from "react-native";
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import AsyncStorage from "@react-native-async-storage/async-storage"; 
 
 // const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
 
-export default function Menu({ item: { nome, preco, ingredientes, imagem } }) {
+export default function Menu({ item: { id, nome, preco, ingredientes, imagem } }) {
+
+  //Função para guardar a Lista de Desejos 
+  async function addListaDesejos(id, nome, imagem) {
+      
+      const addProduto = [{
+        id: id,
+        nome: nome,
+        imagem: imagem,
+      }];
+    
+      //Verifica se o AsyscStorage está populado
+      const listaDesejosSalva = await AsyncStorage.getItem('ListaDesejos');
+      if(listaDesejosSalva == null){
+        //Converte os dados para string 
+        const listaDesejosAtualizada = JSON.stringify(addProduto);
+
+        //Insere o produto na Lista de Desejos
+        await AsyncStorage.setItem('ListaDesejos', listaDesejosAtualizada);
+        Alert.alert("O produto foi adicionado com sucesso na sua Lista de Desejos!");
+        console.log("Produto inserido");
+        console.log(listaDesejosAtualizada);
+      } else {
+        //A Lista de Desejos já tem conteúdo
+        const listaDesejos = JSON.parse(listaDesejosSalva);
+
+        //Adiciona um novo produto na Lista de Desejos 
+        listaDesejos.push({id: id, nome: nome, imagem: imagem});
+
+        const listaDesejosAtualizada = JSON.stringify(listaDesejos);
+
+        await AsyncStorage.setItem('ListaDesejos', listaDesejosAtualizada);
+        Alert.alert("O produto foi adicionado com sucesso na sua Lista de Desejos!");
+        console.log("Mais um produto na lista");
+        console.log(listaDesejosAtualizada);
+      }
+  }
   return  <View style={styles.container}>
     
       <Card mode='elevated' style={styles.card}>
@@ -19,6 +58,9 @@ export default function Menu({ item: { nome, preco, ingredientes, imagem } }) {
         </Card.Content>
         <Card.Actions>
         <Button style={styles.botao} onPress={() => { Alert.alert("Adicionado na Lista de Desejos"); }}>Ok</Button>
+        <TouchableOpacity onPress={()=> addListaDesejos(id, nome, imagem)}>
+          <Ionicons name="heart" size={30} color="red"/>
+        </TouchableOpacity>
       </Card.Actions>
         {/* <Texto style={styles.titulo}>{ti}</Texto> */}
 
