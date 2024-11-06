@@ -6,11 +6,12 @@ const styles = StyleSheet.create({
     },
     cardContainer: {
         width: '50%',
+        height: 190,
     },
     imagem: {
-       width: '30%',
-       height: '60%',
-       alignSelf: 'center', 
+        width: '75%',
+        height: '80%',
+        alignSelf: 'center',
     },
     card: {
         width: '90%',
