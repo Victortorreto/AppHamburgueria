@@ -9,8 +9,8 @@ const styles = StyleSheet.create({
         height: 190,
     },
     imagem: {
-        width: '75%',
-        height: '80%',
+        width: '60%',
+        height: '70%',
         alignSelf: 'center',
     },
     card: {

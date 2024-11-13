@@ -9,10 +9,10 @@ import Botao from "../../componentes/Botao";
 import ListaItem from "./listaItem";
 import styles from "./estilos";
 
-
 export default function Index (){
 
     const [listData, setListData]=useState([]);
+    const navigation = useNavigation();
 
     //Capturar os dados do AsyncStorage
     const loadListData = async () => {
@@ -27,16 +27,21 @@ export default function Index (){
     useEffect(() => {
         loadListData();
     }, []);
-    // Função para excluir a Lista de desejos
-    const navigation = useNavigation();
+
     
     //Função para limpar a Lista de Desejos
     const clearAsyncStorage = async () => {
+    try{
         await AsyncStorage.clear();
         console.log('AysncStorage apagado');
         Alert.alert("Lista de Desejos excluída com sucesso!");
-        navigation.reset({index: 0, routes: [{name: 'Lista de Desejos'}]});
-    }
+        // Remonta o componente da Lista de Desejos Atualizada
+        navigation.reset({index: 0, routes: [{name: 'Lista de Desejos'}],});
+    } catch (error){
+        console.error('Erro ao limpar o AsyncStorage', error)
+    }};
+
+    
 
     return <View style={styles.listaContainer}>
         <StatusBar/>

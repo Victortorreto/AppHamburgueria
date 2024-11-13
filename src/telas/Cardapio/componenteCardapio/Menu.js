@@ -45,6 +45,8 @@ export default function Menu({ item: { id, nome, preco, ingredientes, imagem } }
         console.log("Mais um produto na lista");
         console.log(listaDesejosAtualizada);
       }
+
+      
   }
   return  <View style={styles.container}>
     
